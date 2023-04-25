@@ -11,13 +11,6 @@ def add_cont():
     
 # показывает справочник целиком
 def read_cont():
-    # file = open('файл.txt', 'r', encoding='UTF-8')
-    # data = file.readlines()
-    # file.close()
-    # for contact in data:
-    #     print(contact)
-    #     read_cont()
-    # file.close()
     with open('файл.txt', 'r', encoding='utf-8') as data:
         for contact in data:
             print(contact)
@@ -37,7 +30,6 @@ def find_cont():
 # изменяет данные
 def change_cont():
     phone_book = []
-
     file = open('файл.txt', 'r+', encoding='UTF-8')
     data = file.readlines()
     file.close()
