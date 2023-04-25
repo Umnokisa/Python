@@ -8,16 +8,19 @@ def add_cont():
     print(data)
     file.write(data)
     file.close()
-
+    
 # показывает справочник целиком
 def read_cont():
-    file = open('файл.txt', 'r', encoding='UTF-8')
-    data = file.readlines()
-    file.close()
-    for contact in data:
-        print(contact)
-read_cont()
-
+    # file = open('файл.txt', 'r', encoding='UTF-8')
+    # data = file.readlines()
+    # file.close()
+    # for contact in data:
+    #     print(contact)
+    #     read_cont()
+    # file.close()
+    with open('файл.txt', 'r', encoding='utf-8') as data:
+        for contact in data:
+            print(contact)
 
 # поиск информации в справочнике
 def find_cont():
@@ -28,8 +31,7 @@ def find_cont():
     for cont in data:
         if find_cont.lower() in cont.lower():
             print(cont)
-find_cont()        
-
+        find_cont()
 
 # изменяет данные
 def change_cont():
@@ -66,7 +68,7 @@ def change_cont():
         return char, inp
     else:    
         return 'q', 'q'
-
+    file.close()
 
 # Удаляет данные из телефонной книги    
 def del_cont():
@@ -80,7 +82,7 @@ def del_cont():
                 else:
                     print(line)    
                     f.write(line)
-            file.close()
+    file.close()
 
 path = 'файл.txt'
 
@@ -103,14 +105,14 @@ actions = {'1': 'чтение',
 action = None
 while action != 'q':
     print('Какое действие вы хотите совершить?', *[f'{i} - {actions[i]}' for i in actions])
-    action = input(path)
+    action = input()
     if action == '1':
-        read_cont(path)
+        read_cont()
     elif action == '2':
-        add_cont(path)
+        add_cont()
     elif action == '3':
-        find_cont(path)
+        find_cont()
     elif action == '4':
-        change_cont(path)
+        change_cont()
     elif action == '5':
-        del_cont(path)
+        del_cont()
