@@ -31,7 +31,8 @@ def find_cont():
     for cont in data:
         if find_cont.lower() in cont.lower():
             print(cont)
-        find_cont()
+    find_cont()  
+    file.close()  
 
 # изменяет данные
 def change_cont():
